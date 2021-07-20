@@ -37,14 +37,13 @@ def final_countdown(checking_list):
             j += 1
             k += 1
             if k == series_len:
-                break;
+                break
         sequences_counter += 1
-        sequences_result.append([sorted(list(set(draft_list)), reverse=True)])
+        sequences_result.append(sorted(list(set(draft_list)), reverse=True))
         print(sequences_result)
         i = k
         k += 1
-    sequences_result.insert(0, sequences_counter)
-    return sequences_result
+    return [sequences_counter, sequences_result]
 
 
 class TestStringMethods(unittest.TestCase):
