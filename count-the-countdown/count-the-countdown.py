@@ -22,8 +22,29 @@ import unittest
 
 
 def final_countdown(checking_list):
-
-    return 1
+    i = 0
+    k = 1
+    series_len = len(checking_list)
+    sequences_result = []
+    sequences_counter = 0
+    while k < series_len:
+        j = 0
+        draft_list = []
+        while checking_list[i+j] - checking_list[k] == 1:
+            print(i, j, k)
+            print(checking_list[i+j], checking_list[k])
+            draft_list.extend([checking_list[i+j], checking_list[k]])
+            j += 1
+            k += 1
+            if k == series_len:
+                break;
+        sequences_counter += 1
+        sequences_result.append([sorted(list(set(draft_list)), reverse=True)])
+        print(sequences_result)
+        i = k
+        k += 1
+    sequences_result.insert(0, sequences_counter)
+    return sequences_result
 
 
 class TestStringMethods(unittest.TestCase):
