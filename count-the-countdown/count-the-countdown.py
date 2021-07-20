@@ -25,24 +25,32 @@ def final_countdown(checking_list):
     i = 0
     k = 1
     series_len = len(checking_list)
+    if series_len == 0:
+        return [0, []]
     sequences_result = []
     sequences_counter = 0
+    if checking_list[0] == 1:
+        sequences_counter += 1
+        sequences_result.append([1])
     while k < series_len:
+        founded = False
         j = 0
         draft_list = []
         while checking_list[i+j] - checking_list[k] == 1:
-            print(i, j, k)
-            print(checking_list[i+j], checking_list[k])
+            founded = True
             draft_list.extend([checking_list[i+j], checking_list[k]])
             j += 1
             k += 1
             if k == series_len:
                 break
-        sequences_counter += 1
-        sequences_result.append(sorted(list(set(draft_list)), reverse=True))
-        print(sequences_result)
+        if checking_list[i+j] == 1 and founded:
+            sequences_counter += 1
+            sequences_result.append(sorted(list(set(draft_list)), reverse=True))
         i = k
         k += 1
+    if checking_list[-1] == 1 and checking_list[-2] != 2:
+        sequences_counter += 1
+        sequences_result.append([1])
     return [sequences_counter, sequences_result]
 
 
