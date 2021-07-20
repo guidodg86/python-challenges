@@ -3,11 +3,26 @@ Challenge details
 
 https://edabit.com/challenge/KveKxSD9t8fX7ybSt
 
+Count the Countdown Sequences
+
+A countdown sequence is a descending sequence of k integers from k
+down to 1 (e.g. 5, 4, 3, 2, 1). Write a function that returns a list [x, y] where
+x is the number that represents how many of countdown sequences are in a given list
+and y is a list of those sequences in order which they appear in the list.
+
+Example:
+    final_countdown([4, 4, 5, 4, 3, 2, 1, 8, 3, 2, 1]) ➞ [2, [[5, 4, 3, 2, 1], [3, 2, 1]]]
+
+Notes
+[1] is a valid countdown sequence.
+All numbers will be greater than 0.
+
 """
 import unittest
 
 
 def final_countdown(checking_list):
+
     return 1
 
 
